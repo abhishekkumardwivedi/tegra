@@ -1,0 +1,264 @@
+abhishek@ubuntu:~/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra$ sudo ./tools/jetson-disk-image-creator.sh -o sd-blob.img -b jetson-nano-2gb-devkit -r 300
+[sudo] password for abhishek:
+********************************************
+     Jetson Disk Image Creation Tool
+********************************************
+jetson-disk-image-creator.sh - creating signed images
+~/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra ~/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra
+###############################################################################
+# L4T BSP Information:
+# R32 , REVISION: 4.4
+###############################################################################
+Board ID(3448) version(300)
+creating dummy /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/badpage.bin
+1+0 records in
+1+0 records out
+4096 bytes (4.1 kB, 4.0 KiB) copied, 0.000127339 s, 32.2 MB/s
+copying bctfile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/t210ref/BCT/P3448_A00_lpddr4_204Mhz_P987.cfg)... done.
+copying bootloader(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/t210ref/cboot.bin)... done.
+copying initrd(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/l4t_initrd.img)... done.
+        populating kernel to rootfs... done.
+        populating initrd to rootfs... done.
+        populating /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/kernel/dtb/tegra210-p3448-0003-p3542-0000.dtb to rootfs... done.
+Making Boot image... done.
+Existing sosfile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/nvtboot_recovery.bin) reused.
+copying tegraboot(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/t210ref/nvtboot.bin)... done.
+copying cpu_bootloader(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/t210ref/cboot.bin)... done.
+copying bpffile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/t210ref/sc7entry-firmware.bin)... done.
+Existing badpagefile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/badpage.bin) reused.
+copying wb0boot(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/t210ref/warmboot.bin)... done.
+Existing tosfile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/tos-mon-only.img) reused.
+Existing eksfile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/eks.img) reused.
+copying dtbfile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/kernel/dtb/tegra210-p3448-0003-p3542-0000.dtb)... done.
+Copying nv_boot_control.conf to rootfs
+Making system.img...
+        populating rootfs from /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/rootfs ...
+
+done.
+        populating /boot/extlinux/extlinux.conf ... done.
+        Sync'ing system.img ... done.
+        Converting RAW image to Sparse image... done.
+system.img built successfully.
+Existing tbcfile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/nvtboot_cpu.bin) reused.
+copying tbcdtbfile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/kernel/dtb/tegra210-p3448-0003-p3542-0000.dtb)... done.
+copying cfgfile(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/t210ref/cfg/flash_l4t_t210_spi_sd_p3448.xml) to flash.xml... done.
+copying flasher(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/t210ref/cboot.bin)... done.
+Existing flashapp(/home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/tegraflash.py) reused.
+./tegraflash.py --bl cboot.bin --bct  P3448_A00_lpddr4_204Mhz_P987.cfg --odmdata 0x94000 --bldtb tegra210-p3448-0003-p3542-0000.dtb --applet nvtboot_recovery.bin --cmd "sign"  --cfg flash.xml --chip 0x21    --bins "EBT cboot.bin; DTB tegra210-p3448-0003-p3542-0000.dtb"
+saving flash command in /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/flashcmd.txt
+saving Windows flash command to /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/flash_win.bat
+*** Sign and generate flashing ready partition images... ***
+Welcome to Tegra Flash
+version 1.0.0
+Type ? or help for help and q or quit to exit
+Use ! to execute system commands
+
+[   0.1052 ] tegrasign --key None --getmode mode.txt
+[   0.1080 ] Assuming zero filled SBK key
+[   0.1177 ]
+[   0.1181 ] Generating RCM messages
+[   0.1384 ] tegrarcm --listrcm rcm_list.xml --chip 0x21 0 --download rcm nvtboot_recovery.bin 0 0
+[   0.1414 ] RCM 0 is saved as rcm_0.rcm
+[   0.1578 ] RCM 1 is saved as rcm_1.rcm
+[   0.1578 ] List of rcm files are saved in rcm_list.xml
+[   0.1578 ]
+[   0.1579 ] Signing RCM messages
+[   0.1615 ] tegrasign --key None --list rcm_list.xml --pubkeyhash pub_key.key
+[   0.1644 ] Assuming zero filled SBK key
+[   0.1743 ]
+[   0.1743 ] Copying signature to RCM mesages
+[   0.1758 ] tegrarcm --chip 0x21 0 --updatesig rcm_list_signed.xml
+[   0.1775 ]
+[   0.1776 ] Parsing partition layout
+[   0.2086 ] tegraparser --pt flash.xml.tmp
+[   0.2120 ]
+[   0.2122 ] Creating list of images to be signed
+[   0.2280 ] tegrahost --chip 0x21 0 --partitionlayout flash.xml.bin --list images_list.xml
+[   0.2814 ]
+[   0.2815 ] Generating signatures
+[   0.2835 ] tegrasign --key None --list images_list.xml --pubkeyhash pub_key.key
+[   0.2853 ] Assuming zero filled SBK key
+[   0.3475 ]
+[   0.3476 ] Generating br-bct
+[   0.3829 ] tegrabct --bct P3448_A00_lpddr4_204Mhz_P987.cfg --chip 0x21 0
+[   0.3854 ] Copying Sdram info from 2 to 3 set
+[   0.4213 ]
+[   0.4214 ] Updating boot device parameters
+[   0.4244 ] tegrabct --bct P3448_A00_lpddr4_204Mhz_P987.bct --chip 0x21 0 --updatedevparam flash.xml.bin
+[   0.4258 ] Warning: No sdram params
+[   0.4261 ]
+[   0.4262 ] Updating bl info
+[   0.4273 ] tegrabct --bct P3448_A00_lpddr4_204Mhz_P987.bct --chip 0x21 0 --updateblinfo flash.xml.bin --updatesig images_list_signed.xml
+[   0.4289 ]
+[   0.4290 ] Updating secondary storage information into bct
+[   0.4301 ] tegraparser --pt flash.xml.bin --chip 0x21 0 --updatecustinfo P3448_A00_lpddr4_204Mhz_P987.bct
+[   0.4313 ]
+[   0.4313 ] Updating Odmdata
+[   0.4323 ] tegrabct --bct P3448_A00_lpddr4_204Mhz_P987.bct --chip 0x21 0 --updatefields Odmdata =0x94000
+[   0.4333 ] Warning: No sdram params
+[   0.4335 ]
+[   0.4335 ] Get Signed section of bct
+[   0.4345 ] tegrabct --bct P3448_A00_lpddr4_204Mhz_P987.bct --chip 0x21 0 --listbct bct_list.xml
+[   0.4355 ]
+[   0.4355 ] Signing BCT
+[   0.4374 ] tegrasign --key None --list bct_list.xml --pubkeyhash pub_key.key
+[   0.4384 ] Assuming zero filled SBK key
+[   0.4389 ]
+[   0.4390 ] Updating BCT with signature
+[   0.4399 ] tegrabct --bct P3448_A00_lpddr4_204Mhz_P987.bct --chip 0x21 0 --updatesig bct_list_signed.xml
+[   0.4410 ]
+[   0.4410 ] Copying signatures
+[   0.4421 ] tegrahost --chip 0x21 0 --partitionlayout flash.xml.bin --updatesig images_list_signed.xml
+[   0.4496 ]
+[   0.4496 ] Updating BFS information on BCT
+[   0.4510 ] tegrabct --bct P3448_A00_lpddr4_204Mhz_P987.bct --chip 0x21 0 --updatebfsinfo flash.xml.bin
+[   0.4525 ]
+[   0.4525 ] Copying signed file in /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed
+~/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra
+jetson-disk-image-creator.sh - creating sd-blob.img of 5699M...
+0+0 records in
+0+0 records out
+0 bytes copied, 0.000228524 s, 0.0 kB/s
+jetson-disk-image-creator.sh - create partitions
+Creating new GPT entries.
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 1
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 2
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 3
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 4
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 5
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 6
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 7
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 8
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 9
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 10
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 11
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 12
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 13
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Setting name!
+partNum is 0
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+jetson-disk-image-creator.sh - write partitions
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed/nvtboot_cpu.bin.encrypt
+128+1 records in
+128+1 records out
+65760 bytes (66 kB, 64 KiB) copied, 0.00170127 s, 38.7 MB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed/tegra210-p3448-0003-p3542-0000.dtb.encrypt
+519+1 records in
+519+1 records out
+266192 bytes (266 kB, 260 KiB) copied, 0.00518946 s, 51.3 MB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed/cboot.bin.encrypt
+945+1 records in
+945+1 records out
+483888 bytes (484 kB, 473 KiB) copied, 0.00946782 s, 51.1 MB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed/warmboot.bin.encrypt
+7+1 records in
+7+1 records out
+3952 bytes (4.0 kB, 3.9 KiB) copied, 0.0280382 s, 141 kB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed/sc7entry-firmware.bin.encrypt
+6+1 records in
+6+1 records out
+3376 bytes (3.4 kB, 3.3 KiB) copied, 0.0281252 s, 120 kB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed/tos-mon-only.img.encrypt
+105+1 records in
+105+1 records out
+54208 bytes (54 kB, 53 KiB) copied, 0.00486263 s, 11.1 MB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed/tegra210-p3448-0003-p3542-0000.dtb.encrypt
+519+1 records in
+519+1 records out
+266192 bytes (266 kB, 260 KiB) copied, 0.0401949 s, 6.6 MB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/signed/boot.img.encrypt
+948+0 records in
+948+0 records out
+485376 bytes (485 kB, 474 KiB) copied, 0.028116 s, 17.3 MB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/eks.img
+2+1 records in
+2+1 records out
+1028 bytes (1.0 kB, 1.0 KiB) copied, 0.0399978 s, 25.7 kB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/bmp.blob
+138+1 records in
+138+1 records out
+70988 bytes (71 kB, 69 KiB) copied, 0.0241718 s, 2.9 MB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/rp4.blob
+244+1 records in
+244+1 records out
+125068 bytes (125 kB, 122 KiB) copied, 0.0282404 s, 4.4 MB/s
+jetson-disk-image-creator.sh - writing /home/abhishek/jetson/workspace/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/bootloader/system.img.raw
+11638784+0 records in
+11638784+0 records out
+5959057408 bytes (6.0 GB, 5.5 GiB) copied, 149.034 s, 40.0 MB/s
+********************************************
+   Jetson Disk Image Creation Complete
+********************************************
+
