@@ -1,0 +1,7 @@
+p3450.conf
+----------
+EMMC_CFG=flash_l4t_t210_spi_p3448.xml;
+source "${LDK_DIR}/p3448-0000.conf.common";
+T21BINARGS="--bins \"EBT cboot.bin; "
+NO_SYSTEMIMG=1;
+
