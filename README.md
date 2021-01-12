@@ -1,4 +1,6 @@
 # tegra
+
+## Boot flow
 ```
 [0000.125] [L4T TegraBoot] (version 00.00.2018.01-l4t-80a468da)
 [0000.131] Processing in cold boot mode Bootloader 2
