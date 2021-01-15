@@ -1,5 +1,14 @@
 # tegra
 
+## generic repo
+https://nv-tegra.nvidia.com/gitweb/
+
+## kernel repo
+https://nv-tegra.nvidia.com/gitweb/?p=linux-4.9.git;a=summary
+
+## uboot repo
+
+
 ## Boot flow
 ```
 [0000.125] [L4T TegraBoot] (version 00.00.2018.01-l4t-80a468da)
