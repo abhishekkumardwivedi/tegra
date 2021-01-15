@@ -1,10 +1,68 @@
 # tegra
 
+## Pinout details
+
+https://developer.nvidia.com/embedded/learn/jetson-nano-2gb-devkit-user-guide
+
+## Custom build
+https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/adaptation_and_bringup_nano.html
+https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/kernel_custom.html
+
+## Downloads
+https://developer.nvidia.com/embedded/downloads
+
 ## generic repo
 https://nv-tegra.nvidia.com/gitweb/
 
-## kernel repo
+## Build kernel
+
+### kernel repo
+Preferred way to get the source:
+Get the SDK Manager from https://developer.nvidia.com/nvidia-sdk-manager 
+```
+#~/nvidia/nvidia_sdk/JetPack_4.4.1_Linux_JETSON_NANO_2GB_DEVKIT/Linux_for_Tegra/source_sync.sh
+```
+Use tag `tegra-l4t-r32.4.4` upon source sync.
+
+Other ways to get the source.
 https://nv-tegra.nvidia.com/gitweb/?p=linux-4.9.git;a=summary
+
+
+```
+git clone git://nv-tegra.nvidia.com/linux-4.9.git
+```
+### install kernel
+Follow https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%2520Linux%2520Driver%2520Package%2520Development%2520Guide%2Fkernel_custom.html%23wwpID0E03D0HA
+```
+export CROSS_COMPILE=~/jetson/workspace/gcc-linaro-7.5.0-2019.12-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+make ARCH=arm64 O=TEGRA_KERNEL_OUT tegra_defconfig
+make ARCH=arm64 O=TEGRA_KERNEL_OUT menuconfig
+// enable drivers->Android
+make ARCH=arm64 O=TEGRA_KERNEL_OUT -j8
+```
+Now start installing kernel, dtb, and heards in right place
+
+```
+cd Linux_for_Tegra/kernel
+cp -rvf ../sources/kernel/kernel-4.9/arch/arm64/boot/dts/*.dtb* ./dtb/
+cp ../sources/kernel/kernel-4.9/arch/arm64/boot/Image ./
+sudo make ARCH=arm64 modules_install INSTALL_MOD_PATH=~/jetson/workspace/JetPack_4.4.1_Linux_                                        JETSON_NANO_2GB_DEVKIT-custom/Linux_for_Tegra/rootfs-custom/
+cd ../../../rootfs-custom/
+sudo tar --owner root --group root -cjf ./kernel_supplements.tbz2 lib/modules
+cd Linux_for_Tegra/rootfs/usr/src/
+tar -zcvf kernel-4.9.tar.gz kernel-4.9
+mv kernel-4.9.tar.gz ../../../../
+```
+
+### Now build the mmc flash image
+```
+cd Linux_for_Tegra
+sudo ./tools/jetson-disk-image-creator.sh -o sd-blob.img -b jetson-nano-2gb-devkit -r 300
+```
+This will create ready to flash `sd-blob.img`.
+```
+dd if=sd-blob.img of=/dev/mmcblk0 bs=4M status=progress
+```
 
 ## uboot repo
 
